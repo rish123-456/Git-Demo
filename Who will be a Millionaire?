@@ -1,0 +1,85 @@
+# Build Who will be a Millionaire
+
+print()
+print()
+print("Welcome to 'Who will be a Millionaire'")
+print()
+print()
+Questions=[
+    ['Who is current Prime Minister of India?',
+     'Narendra Modi', 'Rahul Gandhi', 'Arvind Kejriwal', 'Amit Shah'],
+    
+    ['How many states are there in India?',
+     '28', '29', '27', '30'],
+    
+    ['How many Union Territories are there in India?',
+     '8', '7', '9', '6'],
+    
+    ['I am graduating from IITD in which year?',
+     '2026', '2025', '2024', '2027'],
+
+    ['Which brand Laptop I m using?',
+     'HP', 'Apple', 'Lenovo', 'Asus'],
+    
+    ['In which hostel I am currently residing?',
+     'Girnar', 'Nilgiri', 'Shivalik', 'Satpura'],
+
+    ['What is the name of Aravali Night mess?',
+     'Holistic', 'Night Bytes', 'Midnight Munch', 'The Nook'],
+
+    ['In which club I was in my 2nd year?',
+     'Hindi Samiti', 'Dance Club', 'Photography Club', 'Music Club'],
+
+    ['In which board I was in my 2nd year?',
+     'NSS', 'SPIC MACAY', 'Rendezvous Board', 'Sports Board']
+]
+Answers=['Narendra Modi','28','8','2027','Apple','Girnar','Holistic','Hindi Samiti','NSS']
+Prizes=[1000,2000,5000,10000,20000,50000,100000,300000,500000]
+Lifelines=['50:50','Flip']
+i=0
+
+choice='Y'
+while True:
+
+    if choice=='Q':
+        if i == 0:
+            print("You quit before answering any question.")
+        else:
+            print(f"Well Played! You are taking Rs {Prizes[i-1]} with you today.")
+        break
+    i+=1
+    if (i==10):
+        print(f"Congrats! You have given all the answers correctly today! You are taking Rs {Prizes[i-2]} with you today.")
+        break
+     
+
+    
+    print(f"Let's have  Question {i} on your computer screen: ")
+    print()
+    print(Questions[i-1][0])
+    print()
+
+
+    options = Questions[i-1][1:]
+    print(f"A. {options[0]}")
+    print(f"B. {options[1]}")
+    print(f"C. {options[2]}")
+    print(f"D. {options[3]}")
+    print()
+    user_input = input("Enter your option (A/B/C/D): ").strip().upper()
+    answer_map = {'A': 0, 'B': 1, 'C': 2, 'D': 3}
+
+    if user_input in answer_map:
+        selected_answer = options[answer_map[user_input]]
+        if selected_answer.lower() == Answers[i-1].lower():
+            print()
+            print(f"Congrats! you won Rs {Prizes[i-1]}")
+        else:
+            print("Sorry! your answer is wrong! You have lost all your money which you had won.")
+            break
+
+
+
+    
+    choice=input("Do you want to quit(Q) Millionaire Game? ")
+    print()
